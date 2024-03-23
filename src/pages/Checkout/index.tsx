@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCreditCard, faBarcode } from '@fortawesome/free-solid-svg-icons';
 import { Product, FormValues } from '../../types';
+import styles from './Checkout.module.css';
 
 type CheckoutProps = {
   shoppingCartProducts: Product[];
@@ -49,24 +52,25 @@ function Checkout({ shoppingCartProducts, emptyCart }: CheckoutProps) {
   };
 
   return (
-    <div>
-      <div>
-        <h2>Resumo de sua compra:</h2>
+    <form className={ styles.container } onSubmit={ onSubmit }>
+      <div className={ styles.containerProduct }>
+        <h1 className={ styles.title }>Revise seus produtos</h1>
         {shoppingCartProducts.map((product) => (
-          <div key={ product.id }>
+          <div className={ styles.product } key={ product.id }>
             <img src={ product.thumbnail } alt={ product.title } />
             <p>
               {product.title}
             </p>
-            <p>
-              <p>{`R$ ${product.price.toFixed(2)}`}</p>
+            <p className={ styles.price }>
+              {`R$ ${product.price.toFixed(2)}`}
             </p>
           </div>
         ))}
         <div />
       </div>
-      <div>
-        <form onSubmit={ onSubmit }>
+      <section className={ styles.containerUserData }>
+        <h2 className={ styles.title }>Informações do comprador</h2>
+        <div className={ styles.inputs }>
           <label htmlFor="nome">
             <input
               id="nome"
@@ -76,11 +80,12 @@ function Checkout({ shoppingCartProducts, emptyCart }: CheckoutProps) {
               data-testid="checkout-fullname"
               onChange={ onChange }
               value={ nome }
+              className={ styles.input }
             />
           </label>
-
           <label htmlFor="email">
             <input
+              className={ styles.input }
               id="email"
               placeholder="E-mail"
               type="email"
@@ -90,7 +95,6 @@ function Checkout({ shoppingCartProducts, emptyCart }: CheckoutProps) {
               value={ email }
             />
           </label>
-
           <label htmlFor="cpf">
             <input
               id="cpf"
@@ -100,9 +104,9 @@ function Checkout({ shoppingCartProducts, emptyCart }: CheckoutProps) {
               data-testid="checkout-cpf"
               onChange={ onChange }
               value={ cpf }
+              className={ styles.input }
             />
           </label>
-
           <label htmlFor="telefone">
             <input
               id="telefone"
@@ -112,6 +116,7 @@ function Checkout({ shoppingCartProducts, emptyCart }: CheckoutProps) {
               data-testid="checkout-phone"
               onChange={ onChange }
               value={ telefone }
+              className={ styles.input }
             />
           </label>
           <label htmlFor="cep">
@@ -123,6 +128,7 @@ function Checkout({ shoppingCartProducts, emptyCart }: CheckoutProps) {
               data-testid="checkout-cep"
               onChange={ onChange }
               value={ cep }
+              className={ styles.input }
             />
           </label>
           <label htmlFor="endereço">
@@ -134,10 +140,14 @@ function Checkout({ shoppingCartProducts, emptyCart }: CheckoutProps) {
               data-testid="checkout-address"
               onChange={ onChange }
               value={ endereço }
+              className={ styles.input }
             />
           </label>
-
-          <h2>Forma de pagamento</h2>
+        </div>
+      </section>
+      <section className={ styles.containerPayment }>
+        <h2 className={ styles.title }>Forma de pagamento</h2>
+        <div className={ styles.paymentOption }>
           <label htmlFor="boleto">
             <input
               data-testid="ticket-payment"
@@ -150,55 +160,77 @@ function Checkout({ shoppingCartProducts, emptyCart }: CheckoutProps) {
             />
             Boleto
           </label>
-          <label htmlFor="visa">
-            Visa
-            <input
-              data-testid="visa-payment"
-              type="radio"
-              name="pagamento"
-              id="visa"
-              value="visa"
-              checked={ pagamento === 'visa' }
-              onChange={ onChange }
-            />
-            Visa
-          </label>
-          <label htmlFor="master">
-            <input
-              data-testid="master-payment"
-              type="radio"
-              name="pagamento"
-              id="master"
-              value="master"
-              checked={ pagamento === 'master' }
-              onChange={ onChange }
-            />
-            Master
-          </label>
-          <label htmlFor="elo">
+          <FontAwesomeIcon icon={ faBarcode } size="2xl" style={ { color: '#31c28d' } } />
+        </div>
+        <h2 className={ styles.subtitle }>Cartão de Crédito:</h2>
+        <label htmlFor="visa">
+          <input
+            data-testid="visa-payment"
+            type="radio"
+            name="pagamento"
+            id="visa"
+            value="visa"
+            checked={ pagamento === 'visa' }
+            onChange={ onChange }
+          />
+          Visa
+        </label>
+        <FontAwesomeIcon
+          icon={ faCreditCard }
+          size="2xl"
+          style={ { color: '#31c28d' } }
+        />
+        <label htmlFor="master">
+          <input
+            data-testid="master-payment"
+            type="radio"
+            name="pagamento"
+            id="master"
+            value="master"
+            checked={ pagamento === 'master' }
+            onChange={ onChange }
+          />
+          Master
+        </label>
+        <FontAwesomeIcon
+          icon={ faCreditCard }
+          size="2xl"
+          style={ { color: '#31c28d' } }
+        />
+        <label htmlFor="elo">
+          <input
+            data-testid="elo-payment"
+            type="radio"
+            name="pagamento"
+            id="elo"
+            value="elo"
+            checked={ pagamento === 'elo' }
+            onChange={ onChange }
+          />
+          Elo
+        </label>
+        <FontAwesomeIcon
+          icon={ faCreditCard }
+          size="2xl"
+          style={ { color: '#31c28d' } }
+        />
 
-            <input
-              data-testid="elo-payment"
-              type="radio"
-              name="pagamento"
-              id="elo"
-              value="elo"
-              checked={ pagamento === 'elo' }
-              onChange={ onChange }
-            />
-            Elo
-          </label>
+      </section>
+      { errorMsg && <p
+        className={ styles.invalidText }
+        data-testid="error-msg"
+      >
+        Campos inválidos
 
-          <button
-            data-testid="checkout-btn"
-            type="submit"
-          >
-            Comprar
-          </button>
-          { errorMsg && <p data-testid="error-msg">Campos inválidos</p> }
-        </form>
-      </div>
-    </div>
+                    </p>}
+      <button
+        data-testid="checkout-btn"
+        type="submit"
+        className={ styles.buttonBuy }
+      >
+        COMPRAR
+      </button>
+    </form>
   );
 }
 

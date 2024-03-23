@@ -1,0 +1,152 @@
+.title {
+  color: var(--green-300);
+  font-family: Epilogue , sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-align: center;
+}
+
+.subtitle {
+  color: var(--green-300);
+  font-family: Epilogue , sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.input {
+  background: white;
+  border: 1px solid #3a3939;
+  border-radius: 0.3rem;
+  color: var(--grey-500);
+  font-weight: 600;
+  height: 35px;
+  margin: 0.3rem;
+  width: 300px;
+}
+
+.container {
+  align-items: center;
+  background-color: var(--background);
+  color: var(--green-300);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 4% 5vw;
+  padding: 0.5rem;
+  width: 100%;
+}
+
+.containerProduct {
+  align-items: flex-start;
+  background-color: var(--background);
+  border: 1px solid #0c0707;
+  color: var(--grey-500);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+  width: 100%;
+}
+
+.product {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.product p {
+  margin-left: 0.5rem;
+}
+
+.price {
+  font-weight: 900;
+}
+
+.containerUserData {
+  align-items: center;
+  border: 1px solid #0c0707;
+  display: flex;
+  flex-flow: row wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 1rem;
+  padding: 1rem;
+  width: 100%;
+}
+
+.inputs {
+  display: flex;
+  flex-flow: row wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.inputs label {
+  margin-top: 0.5rem;
+}
+
+.containerPayment {
+  align-items: center;
+  border: 1px solid #0c0707;
+  color: var(--grey-500);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 1rem;
+  padding: 1rem;
+  width: 100%;
+}
+
+.containerPayment input[ type = 'radio' ] {
+  cursor: pointer;
+}
+
+.paymentOption {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 0.5rem;
+  margin-right: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.paymentOption label {
+  margin-left: 0.5rem;
+  margin-right: 1.5rem;
+}
+
+.buttonBuy {
+  background-color: var(--green-300);
+  border: none;
+  color: var(--white);
+  cursor: pointer;
+  font-family: Epilogue , sans-serif;
+  font-weight: 900;
+  height: 2.75rem;
+  margin-top: 1rem;
+  padding: 0.8rem;
+  width: 100%;
+}
+
+.buttonBuy:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.invalidText {
+  color: var(--red);
+  font-family: Epilogue , sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+@media ( max-width : 550px ) {
+
+  .containerPayment {
+    flex-direction: column;
+  }
+}
