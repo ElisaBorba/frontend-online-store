@@ -1,6 +1,6 @@
 # Front-End Online Store 🛒
 
-O Front-End Online Store é uma aplicação desenvolvida em React com Context API, criada para oferecer uma experiência de compra simplificada e conveniente. Com foco em praticidade, os usuários podem navegar por uma variedade de produtos e adicionar itens ao carrinho de compras. Além disso, a aplicação permite filtrar detalhes da compra por categorias, como "Acessórios para Veículos", "Agro", "Animais" e entre outros.
+Essa aplicação foi desenvolvida em React, criada para oferecer uma experiência de compra simplificada e conveniente. Com foco em praticidade, os usuários podem navegar por uma variedade de produtos e adicionar itens ao carrinho de compras. Além disso, a aplicação permite filtrar detalhes da compra por categorias, como "Acessórios para Veículos", "Agro", "Animais" e entre outros.
 
 Além  disso, esse projeto foi uma oportunidade de aprendizado sobre Métodos Ágeis, promovendo uma abordagem flexível e colaborativa no desenvolvimento da página. 
 
