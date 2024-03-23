@@ -1,6 +1,6 @@
-# BuyEase 🛒
+# Front-End Online Store 🛒
 
-O BuyEase é uma aplicação desenvolvida em React com Context API, criada para oferecer uma experiência de compra simplificada e conveniente. Com foco em praticidade, os usuários podem navegar por uma variedade de produtos e adicionar itens ao carrinho de compras. Além disso, a aplicação permite filtrar detalhes da compra por categorias, como "Acessórios para Veículos", "Agro", "Animais" e entre outros.
+O Front-End Online Store é uma aplicação desenvolvida em React com Context API, criada para oferecer uma experiência de compra simplificada e conveniente. Com foco em praticidade, os usuários podem navegar por uma variedade de produtos e adicionar itens ao carrinho de compras. Além disso, a aplicação permite filtrar detalhes da compra por categorias, como "Acessórios para Veículos", "Agro", "Animais" e entre outros.
 
 Além  disso, esse projeto foi uma oportunidade de aprendizado sobre Métodos Ágeis, promovendo uma abordagem flexível e colaborativa no desenvolvimento da página. 
 
@@ -11,7 +11,6 @@ Além  disso, esse projeto foi uma oportunidade de aprendizado sobre Métodos Á
 * Editar dados do comprador no carrinho;
 
 ## 🛠 Tecnologias utilizadas
-
 * React
 * TypeScript
   
@@ -30,9 +29,10 @@ A aplicação consume os dados da API do Mercado Livre para realizar a busca de 
 │   │   └── ProductDetails.tsx
 │   ├── pages/
 │   │   ├── Checkout/
+│   │   │   ├── Checkout.module.css
 │   │   │   └── index.tsx
 │   │   ├── Home/
-│   │   │   ├── home.module.css;
+│   │   │   ├── home.module.css
 │   │   │   └── index.tsx
 │   │   ├── ShoppingCartPage/
 │   │   │   └── index.tsx
